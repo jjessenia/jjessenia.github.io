@@ -2,29 +2,67 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f8f9fa; /* Gris claro */
 }
 
 header {
-    background-color: #333;
+    background-color: #343a40; /* Negro */
     color: white;
-    padding: 10px 0;
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    margin: 0;
+    color: #28a745; /* Verde */
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    display: flex;
+    margin: 0;
 }
 
 nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-bar input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+.search-bar button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+.search-bar button:hover {
+    background-color: #218838; /* Verde oscuro */
 }
 
 main {
@@ -35,10 +73,16 @@ section {
     margin-bottom: 40px;
 }
 
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+}
+
 .product {
     background-color: white;
     padding: 20px;
-    margin: 20px 0;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     text-align: center;
@@ -49,14 +93,16 @@ section {
     border-radius: 5px;
 }
 
+.product h3 {
+    color: #28a745; /* Verde */
+}
+
 footer {
-    background-color: #333;
+    background-color: #343a40; /* Negro */
     color: white;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    position: relative;
 }
 
 #close-footer {
@@ -70,17 +116,47 @@ footer {
 
 /* Estilos responsivos para dispositivos móviles */
 @media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
     nav ul li {
-        display: block;
         margin: 10px 0;
     }
 
-    .product {
-        margin: 10px 0;
+    .product-grid {
+        grid-template-columns: 1fr;
     }
 
-    #close-footer {
-        right: 10px;
-        top: 10px;
+    .search-bar {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .search-bar input,
+    .search-bar button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .search-bar {
+        margin-top: 10px;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .search-bar input,
+    .search-bar button {
+        width: 100%;
+        margin: 5px 0;
     }
 }
